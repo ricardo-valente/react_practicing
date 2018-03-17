@@ -9,11 +9,12 @@ class App extends Component {
         <header>
           <h1>Hi! I am a React App.</h1>
           <p>coded by Ricardo Valente</p>
-          <Person />
+          <Person name="Ricardo" age="31" />
+          <Person name="João" age="25" />
+          <Person name="Laurentino" age="28" />
         </header>
       </div>
     );
-    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Ricardo Valente'));
   }
 }
 
