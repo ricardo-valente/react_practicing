@@ -6,19 +6,23 @@ import UserOutput from './Assignment_1/UserOutput';
 class App extends Component {
 
   state = {
-    name: 'Richardo Valente'
+    name: 'Richardo Valente',
+    age: 32
   }
 
-  changeNameHandler = event => this.setState({ name: event.target.value })
+  changeNameHandler = event => this.setState({
+    name: event.target.value,
+    age: Math.floor(Math.random(this.state.age) * 50)
+  })
 
   render() {
     return (
       <div className="App">
         <h1>Assignment #01</h1>
         <UserInput change={this.changeNameHandler} initialState={this.state.name} />
-        <UserOutput name={this.state.name} />
-        <UserOutput name={this.state.name} />
-        <UserOutput name={this.state.name} />
+        <UserOutput name={this.state.name} age={this.state.age} />
+        <UserOutput name={this.state.name} age={this.state.age} />
+        <UserOutput name={this.state.name} age={this.state.age} />
         <h6>by Richardo Valente</h6>
       </div>
     );
