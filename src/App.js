@@ -5,22 +5,20 @@ import UserOutput from './Assignment_1/UserOutput';
 
 class App extends Component {
 
-  userState = {
-    users: [
-      { name: 'Richardo Valente' },
-      { name: 'João Molerio' },
-      { name: 'Ricardo Riberio' }
-    ]
+  state = {
+    name: 'Richardo Valente'
   }
+
+  changeNameHandler = event => this.setState({ name: event.target.value })
 
   render() {
     return (
       <div className="App">
         <h1>Assignment #01</h1>
-        <UserInput />
-        <UserOutput name={this.userState.users[0].name} />
-        <UserOutput name={this.userState.users[1].name} />
-        <UserOutput name={this.userState.users[2].name} />
+        <UserInput change={this.changeNameHandler} initialState={this.state.name} />
+        <UserOutput name={this.state.name} />
+        <UserOutput name={this.state.name} />
+        <UserOutput name={this.state.name} />
         <h6>by Richardo Valente</h6>
       </div>
     );
