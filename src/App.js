@@ -16,14 +16,23 @@ class App extends Component {
   })
 
   render() {
+    const titleStyle = {
+      color: '#444',
+      margin: '50px auto'
+    }
+    const authorStyle = {
+      margin: '50px auto',
+      fontWeight: '400',
+      letterSpacing: '1px'
+    }
     return (
       <div className="App">
-        <h1>Assignment #01</h1>
+        <h1 style={titleStyle}>Assignment #01</h1>
         <UserInput change={this.changeNameHandler} initialState={this.state.name} />
         <UserOutput name={this.state.name} age={this.state.age} />
         <UserOutput name={this.state.name} age={this.state.age} />
         <UserOutput name={this.state.name} age={this.state.age} />
-        <h6>by Richardo Valente</h6>
+        <h6 style={authorStyle}>by Richardo Valente</h6>
       </div>
     );
   }
