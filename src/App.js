@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Validator from './validation/validationComponent'
+import CharBox from './validation/charComponent'
 
 class App extends Component {
 
@@ -22,6 +23,9 @@ class App extends Component {
         </div>
         <div className="app__validator">
           <Validator inputLength={this.state.inputLength} />
+        </div>
+        <div className="app__chars">
+          <CharBox char={this.state.inputLength} />
         </div>
       </div>
     )
