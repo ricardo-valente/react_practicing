@@ -21,13 +21,24 @@ class App extends Component {
     })
   }
 
-  stringToArray = string => string.split('')
+  removeCharHandler = char => {
+    const newState = {
+      ...this.state
+    }
+    const inputValue = newState.inputValue.split('')
+    const charIndex = inputValue.indexOf(char)
+    inputValue.splice(charIndex, 1)
+    this.setState({
+      inputLength: inputValue.length,
+      inputValue: inputValue.join('')
+    })
+  }
 
   render() {
     return (
       <div className="app">
         <div className="app__input">
-          <input type="text" onChange={this.inputLengthHandler} />
+          <input type="text" onChange={this.inputLengthHandler} value={this.state.inputValue} />
           <p>{this.state.inputLength}</p>
         </div>
         <div className="app__validator">
@@ -35,8 +46,8 @@ class App extends Component {
         </div>
         <div className="app__chars">
           {
-            this.stringToArray(this.state.inputValue).map(char => {
-              return <CharBox char={char} />
+            this.state.inputValue.split('').map((char, index) => {
+              return <CharBox id={index} char={char} clickEvent={() => this.removeCharHandler(char)} />
             })
           }
         </div>
