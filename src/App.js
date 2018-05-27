@@ -1,78 +1,53 @@
-import React, { Component } from 'react';
-import './App.css';
-import Person from './Person/Person';
+import React, { Component } from 'react'
+import Validator from './validation/validationComponent'
+import CharBox from './validation/charComponent'
 
 class App extends Component {
 
   state = {
-    persons: [
-      { id: 'fd62fd', name: 'Ricardo', age: '31' },
-      { id: '23sw2h', name: 'João', age: '25' },
-      { id: '965j6y', name: 'Laurentino', age: '28' }
-    ],
-    otherState: 'some other name',
-    showPersons: false
+    inputValue: ''
   }
 
-  togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow });
-  }
-
-  deletePersonsHandler = (personIndex) => {
-    const persons = [...this.state.persons];
-    persons.splice(personIndex, 1);
-    this.setState({persons: persons});
-  }
-
-  changeNameHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(person => {
-      return person.id === id
-    })
-    const person = {
-      ...this.state.persons[personIndex]
+  inputChangeHandler = event => {
+    const newState = {
+      ...this.state
     }
-    person.name = event.target.value
-    const persons = [...this.state.persons]
-    persons[personIndex] = person
-    this.setState({ persons: persons })
+    newState.inputValue = event.target.value
+    this.setState({
+      inputValue: newState.inputValue,
+    })
+  }
+
+  removeCharHandler = index => {
+    const newState = {
+      ...this.state
+    }
+    const inputValue = newState.inputValue.split('')
+    inputValue.splice(index, 1)
+    this.setState({
+      inputValue: inputValue.join('')
+    })
   }
 
   render() {
-    const buttonStyle = {
-      padding: '10px 25px',
-      color: '#444',
-      border: '2px solid #444',
-      borderRadius: '5px'
-    }
-
-    let persons = null;
-    if (this.state.showPersons) {
-      persons = (
-        <div>
-          {this.state.persons.map((person, index) => {
-            return <Person
-              click={() => this.deletePersonsHandler(index)}
-              name={person.name}
-              age={person.age}
-              key={person.id}
-              change={event => this.changeNameHandler(event, person.id)} />
-          })}
-        </div>
-      );
-    }
-
+    const charsList = this.state.inputValue.split('').map((char, index) => {
+      return <CharBox key={index} char={char} clickEvent={() => this.removeCharHandler(index)} />
+    })
     return (
-      <div className="App">
-        <header>
-          <h1>Hi! I am a React App.</h1>
-          <p>coded by Ricardo Valente</p>
-          <button style={buttonStyle} onClick={this.togglePersonsHandler}>Toggle Persons</button>
-          {persons}
-        </header>
+      <div className="app">
+        <div className="app__input">
+          <input type="text" onChange={this.inputChangeHandler} value={this.state.inputValue} />
+          <p>{this.state.inputValue.length}</p>
+        </div>
+        <div className="app__validator">
+          <Validator inputLength={this.state.inputValue.length} />
+        </div>
+        <div className="app__chars">
+          {charsList}
+        </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
