@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import Validator from './validation/validationComponent'
 
 class App extends Component {
 
@@ -15,11 +16,16 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <input type="text" onChange={this.inputLengthHandler} />
-        <p>{this.state.inputLength}</p>
+        <div className="app__input">
+          <input type="text" onChange={this.inputLengthHandler} />
+          <p>{this.state.inputLength}</p>
+        </div>
+        <div className="app__validator">
+          <Validator inputLength={this.state.inputLength} />
+        </div>
       </div>
     )
   }
 }
 
-export default App;
+export default App
