@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Char.css';
 
 const charBox = props => (
-  <div className="char__box">
+  <div id={props.id} className="char__box" onClick={props.clickEvent}>
     <h2>{props.char}</h2>
   </div>
 )
