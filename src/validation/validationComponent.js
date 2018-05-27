@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 
+const validation = value => {
+  return value.length > 5
+    ? 'Text long enough'
+    : 'Text too short'
+}
+
 const validator = props => (
-  <p>I am String Length Validator</p>
+  <p>{validation(props.inputLength)}</p>
+  <p>{props.inputLength}</p>
 )
 
 export default validator
