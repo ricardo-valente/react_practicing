@@ -8,7 +8,6 @@ const validation = value => {
 
 const validator = props => (
   <p>{validation(props.inputLength)}</p>
-  <p>{props.inputLength}</p>
 )
 
 export default validator
