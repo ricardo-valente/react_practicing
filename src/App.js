@@ -5,14 +5,23 @@ import CharBox from './validation/charComponent'
 class App extends Component {
 
   state = {
-    inputLength: 0
+    inputLength: 0,
+    inputValue: ''
   }
 
   inputLengthHandler = event => {
+    const newState = {
+      ...this.state
+    }
+    newState.inputLength = event.target.value.length
+    newState.inputValue = event.target.value
     this.setState({
-      inputLength: event.target.value.length
+      inputLength: newState.inputLength,
+      inputValue: newState.inputValue,
     })
   }
+
+  stringToArray = string => string.split('')
 
   render() {
     return (
@@ -25,7 +34,11 @@ class App extends Component {
           <Validator inputLength={this.state.inputLength} />
         </div>
         <div className="app__chars">
-          <CharBox char={this.state.inputLength} />
+          {
+            this.stringToArray(this.state.inputValue).map(char => {
+              return <CharBox char={char} />
+            })
+          }
         </div>
       </div>
     )
