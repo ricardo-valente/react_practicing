@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Radium from 'radium';
 
 class App extends Component {
 
@@ -43,7 +44,12 @@ class App extends Component {
       padding: '10px 25px',
       color: 'green',
       border: '2px solid green',
-      borderRadius: '5px'
+      borderRadius: '5px',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'darkgreen',
+        borderColor: 'darkgreen'
+      }
     }
 
     const classes = []
@@ -70,13 +76,18 @@ class App extends Component {
       );
       buttonStyle.color = 'red'
       buttonStyle.borderColor = 'red'
+      buttonStyle[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'darkred',
+        borderColor: 'darkred'
+      }
     }
 
     return (
       <div className="App">
         <header>
           <h1>Hi! I am a React App.</h1>
-          <p class={classes.join(' ')}>coded by Ricardo Valente</p>
+          <p className={classes.join(' ')}>coded by Ricardo Valente</p>
           <button style={buttonStyle} onClick={this.togglePersonsHandler}>Toggle Persons</button>
           {persons}
         </header>
@@ -85,4 +96,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
