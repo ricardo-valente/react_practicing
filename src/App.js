@@ -41,8 +41,8 @@ class App extends Component {
   render() {
     const buttonStyle = {
       padding: '10px 25px',
-      color: '#444',
-      border: '2px solid #444',
+      color: 'green',
+      border: '2px solid green',
       borderRadius: '5px'
     }
 
@@ -60,6 +60,8 @@ class App extends Component {
           })}
         </div>
       );
+      buttonStyle.color = 'red'
+      buttonStyle.borderColor = 'red'
     }
 
     return (
