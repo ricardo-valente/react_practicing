@@ -46,6 +46,14 @@ class App extends Component {
       borderRadius: '5px'
     }
 
+    const classes = []
+    this.state.persons.length < 3
+      ? classes.push('red')
+      : false
+    this.state.persons.length < 2
+      ? classes.push('bold')
+      : false
+
     let persons = null;
     if (this.state.showPersons) {
       persons = (
@@ -68,7 +76,7 @@ class App extends Component {
       <div className="App">
         <header>
           <h1>Hi! I am a React App.</h1>
-          <p>coded by Ricardo Valente</p>
+          <p class={classes.join(' ')}>coded by Ricardo Valente</p>
           <button style={buttonStyle} onClick={this.togglePersonsHandler}>Toggle Persons</button>
           {persons}
         </header>
