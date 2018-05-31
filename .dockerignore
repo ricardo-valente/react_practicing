@@ -1,0 +1,13 @@
+node_modules
+.tmp
+.idea
+.DS_Store
+.git
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+yarn.lock
+package-lock.json
