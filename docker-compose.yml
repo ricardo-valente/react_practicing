@@ -1,0 +1,11 @@
+version: '3.1'
+services:
+  app:
+    container_name: react_course
+    build: .
+    volumes:
+      - .:/usr/web/
+      - /usr/web/node_modules/
+    ports:
+      - "3006:3006"
+    restart: always
