@@ -7,5 +7,5 @@ services:
       - .:/usr/web/
       - /usr/web/node_modules/
     ports:
-      - "3006:3006"
+      - "3006:3000"
     restart: always
