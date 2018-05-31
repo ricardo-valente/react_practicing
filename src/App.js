@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css'
+import appStyles from './App.css'
 import Person from './Person/Person'
 
 class App extends Component {
@@ -48,10 +48,10 @@ class App extends Component {
 
     const classes = []
     this.state.persons.length < 3
-      ? classes.push('red')
+      ? classes.push(appStyles.red)
       : false
     this.state.persons.length < 2
-      ? classes.push('bold')
+      ? classes.push(appStyles.bold)
       : false
 
     let persons = null
@@ -73,7 +73,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className={appStyles.App}>
         <header>
           <h1>Hi! I am a React App.</h1>
           <p className={classes.join(' ')}>coded by Ricardo Valente</p>
