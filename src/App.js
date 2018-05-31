@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import './App.css';
-import Person from './Person/Person';
-import Radium, { StyleRoot } from 'radium';
+import React, { Component } from 'react'
+import appStyles from './App.css'
+import Person from './Person/Person'
 
 class App extends Component {
 
@@ -16,14 +15,14 @@ class App extends Component {
   }
 
   togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow });
+    const doesShow = this.state.showPersons
+    this.setState({ showPersons: !doesShow })
   }
 
   deletePersonsHandler = (personIndex) => {
-    const persons = [...this.state.persons];
-    persons.splice(personIndex, 1);
-    this.setState({persons: persons});
+    const persons = [...this.state.persons]
+    persons.splice(personIndex, 1)
+    this.setState({persons: persons})
   }
 
   changeNameHandler = (event, id) => {
@@ -44,23 +43,18 @@ class App extends Component {
       padding: '10px 25px',
       color: 'green',
       border: '2px solid green',
-      borderRadius: '5px',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'darkgreen',
-        borderColor: 'darkgreen'
-      }
+      borderRadius: '5px'
     }
 
     const classes = []
     this.state.persons.length < 3
-      ? classes.push('red')
+      ? classes.push(appStyles.red)
       : false
     this.state.persons.length < 2
-      ? classes.push('bold')
+      ? classes.push(appStyles.bold)
       : false
 
-    let persons = null;
+    let persons = null
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -73,29 +67,22 @@ class App extends Component {
               change={event => this.changeNameHandler(event, person.id)} />
           })}
         </div>
-      );
+      )
       buttonStyle.color = 'red'
       buttonStyle.borderColor = 'red'
-      buttonStyle[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'darkred',
-        borderColor: 'darkred'
-      }
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <header>
-            <h1>Hi! I am a React App.</h1>
-            <p className={classes.join(' ')}>coded by Ricardo Valente</p>
-            <button style={buttonStyle} onClick={this.togglePersonsHandler}>Toggle Persons</button>
-            {persons}
-          </header>
-        </div>
-      </StyleRoot>
-    );
+      <div className={appStyles.App}>
+        <header>
+          <h1>Hi! I am a React App.</h1>
+          <p className={classes.join(' ')}>coded by Ricardo Valente</p>
+          <button style={buttonStyle} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+          {persons}
+        </header>
+      </div>
+    )
   }
 }
 
-export default Radium(App);
+export default App
