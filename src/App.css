@@ -34,3 +34,31 @@
 .bold {
   font-weight: bolder;
 }
+
+.App button {
+  padding: 10px 25px;
+  border: 2px solid green;
+  border-radius: 5px;
+  color: green;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 150ms ease-out;
+}
+.App button:hover {
+  color: darkolivegreen;
+  border-color: darkolivegreen;
+  background-color: lightgreen;
+}
+.App button:focus {
+  outline: none;
+}
+
+.App button.red {
+  color: salmon;
+  border-color: salmon;
+}
+.App button.red:hover {
+  color: darkred;
+  border-color: darkred;
+  background-color: salmon;
+}
