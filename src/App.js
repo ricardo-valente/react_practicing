@@ -39,14 +39,10 @@ class App extends Component {
   }
 
   render() {
-    const buttonStyle = {
-      padding: '10px 25px',
-      color: 'green',
-      border: '2px solid green',
-      borderRadius: '5px'
-    }
-
     const classes = []
+    let persons = null
+    let buttonClass = ''
+
     this.state.persons.length < 3
       ? classes.push(appStyles.red)
       : false
@@ -54,7 +50,6 @@ class App extends Component {
       ? classes.push(appStyles.bold)
       : false
 
-    let persons = null
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -68,8 +63,7 @@ class App extends Component {
           })}
         </div>
       )
-      buttonStyle.color = 'red'
-      buttonStyle.borderColor = 'red'
+      buttonClass = appStyles.red
     }
 
     return (
@@ -77,7 +71,9 @@ class App extends Component {
         <header>
           <h1>Hi! I am a React App.</h1>
           <p className={classes.join(' ')}>coded by Ricardo Valente</p>
-          <button style={buttonStyle} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+          <button
+            className={buttonClass}
+            onClick={this.togglePersonsHandler}>Toggle Persons</button>
           {persons}
         </header>
       </div>
