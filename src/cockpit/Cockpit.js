@@ -19,8 +19,8 @@ const cockpit = props => {
 
   return (
     <header className={cockpitStyles.Cockpit}>
-      <h1>Hi! I am a React App.</h1>
-      <p className={classes.join(' ')}>coded by Ricardo Valente</p>
+      <h1>Hi! I am {props.appName}.</h1>
+      <p className={classes.join(' ')}>coded by {props.appAuthor}</p>
       <button
         className={buttonClass}
         onClick={props.onClick}>Toggle Persons</button>
