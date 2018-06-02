@@ -4,6 +4,18 @@ import Persons from '../components/Persons/Persons'
 import Cockpit from '../cockpit/Cockpit'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    console.log('[App.js] init Constructor()', props)
+  }
+
+  componentWillMount() {
+    console.log('[App.js] init componentWillMount()')
+  }
+
+  componentDidMount() {
+    console.log('[App.js] init componentDidMount()')
+  }
 
   state = {
     persons: [
@@ -40,6 +52,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] init render()')
 
     let persons = null
 
