@@ -9,6 +9,17 @@ class App extends PureComponent {
   constructor(props) {
     super(props)
     console.log('[App.js] init Constructor()', props)
+
+    this.state = {
+      persons: [
+        { id: 'fd62fd', name: 'Ricardo', age: '31' },
+        { id: '23sw2h', name: 'João', age: '25' },
+        { id: '965j6y', name: 'Laurentino', age: '28' }
+      ],
+      otherState: 'some other name',
+      showPersons: false,
+      toggleClicked: 0
+    }
   }
 
   componentWillMount() {
@@ -46,19 +57,12 @@ class App extends PureComponent {
     console.log('[UPDATE App.js] init componentDidUpdate()')
   }
 
-  state = {
-    persons: [
-      { id: 'fd62fd', name: 'Ricardo', age: '31' },
-      { id: '23sw2h', name: 'João', age: '25' },
-      { id: '965j6y', name: 'Laurentino', age: '28' }
-    ],
-    otherState: 'some other name',
-    showPersons: false
-  }
-
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons
-    this.setState({ showPersons: !doesShow })
+    this.setState((prevState, props) => ({
+      showPersons: !doesShow,
+      toggleClicked: prevState.showPersons + 1,
+    }))
   }
 
   deletePersonsHandler = (personIndex) => {
