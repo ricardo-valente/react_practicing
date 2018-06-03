@@ -27,7 +27,9 @@ class App extends Component {
       nextProps,
       nextState
     )
-    return nextProps.persons !== this.state.persons
+    return nextProps.persons !== this.state.persons ||
+      nextProps.otherState !== this.state.otherState ||
+      nextProps.showPersons !== this.state.showPersons
   }
 
   componentWillUpdate(nextProps, nextState) {

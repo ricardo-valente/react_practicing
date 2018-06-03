@@ -25,7 +25,9 @@ class Persons extends Component {
       nextProps,
       nextState
     )
-    return nextProps.persons !== this.props.persons
+    return nextProps.persons !== this.props.persons ||
+      nextProps.click !== this.props.click ||
+      nextProps.change !== this.props.change
   }
 
   componentWillUpdate(nextProps, nextState) {
