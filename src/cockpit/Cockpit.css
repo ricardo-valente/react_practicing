@@ -6,7 +6,7 @@
   font-weight: bolder;
 }
 
-.Cockpit button {
+.button {
   padding: 10px 25px;
   border: 2px solid green;
   border-radius: 5px;
@@ -15,20 +15,20 @@
   cursor: pointer;
   transition: all 150ms ease-out;
 }
-.Cockpit button:hover {
+.button:hover {
   color: darkolivegreen;
   border-color: darkolivegreen;
   background-color: lightgreen;
 }
-.Cockpit button:focus {
+.button:focus {
   outline: none;
 }
 
-.Cockpit button.red {
+.button.red {
   color: salmon;
   border-color: salmon;
 }
-.Cockpit button.red:hover {
+.button.red:hover {
   color: darkred;
   border-color: darkred;
   background-color: salmon;
