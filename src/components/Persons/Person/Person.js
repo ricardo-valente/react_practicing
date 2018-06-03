@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import personStyles from './Person.css'
+import Util from '../../../hoc/Util'
+import withClass from '../../../hoc/withClass'
 
 class Person extends Component {
   constructor(props) {
@@ -18,13 +20,13 @@ class Person extends Component {
   render() {
     console.log('[Person.js] init render()')
     return (
-      <div className={personStyles.person}>
+      <Util>
         <h3 onClick={this.props.click}>I am {this.props.name} and I am {this.props.age} years old!</h3>
         <p>{this.props.children}</p>
         <input type="text" onChange={this.props.change} value={this.props.name} />
-      </div>
+      </Util>
     )
   }
 }
 
-export default Person
+export default withClass(Person, personStyles.person)

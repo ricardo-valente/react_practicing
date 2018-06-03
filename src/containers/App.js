@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react'
 import appStyles from './App.css'
 import Persons from '../components/Persons/Persons'
 import Cockpit from '../cockpit/Cockpit'
-import WithClass from '../hoc/WithClass'
+import Util from '../hoc/Util'
+import withClass from '../hoc/withClass'
 
 class App extends PureComponent {
   constructor(props) {
@@ -96,7 +97,7 @@ class App extends PureComponent {
     }
 
     return (
-      <WithClass classes={appStyles.App}>
+      <Util>
         <Cockpit
           appName={this.props.name}
           appAuthor={this.props.author}
@@ -104,9 +105,9 @@ class App extends PureComponent {
           persons={this.state.persons}
           onClick={this.togglePersonsHandler} />
         {persons}
-      </WithClass>
+      </Util>
     )
   }
 }
 
-export default App
+export default withClass(App, appStyles.App)
