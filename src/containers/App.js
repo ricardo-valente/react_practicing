@@ -9,6 +9,16 @@ class App extends PureComponent {
   constructor(props) {
     super(props)
     console.log('[App.js] init Constructor()', props)
+
+    this.state = {
+      persons: [
+        { id: 'fd62fd', name: 'Ricardo', age: '31' },
+        { id: '23sw2h', name: 'João', age: '25' },
+        { id: '965j6y', name: 'Laurentino', age: '28' }
+      ],
+      otherState: 'some other name',
+      showPersons: false
+    }
   }
 
   componentWillMount() {
@@ -44,16 +54,6 @@ class App extends PureComponent {
 
   componentDidUpdate(nextProps, nextState) {
     console.log('[UPDATE App.js] init componentDidUpdate()')
-  }
-
-  state = {
-    persons: [
-      { id: 'fd62fd', name: 'Ricardo', age: '31' },
-      { id: '23sw2h', name: 'João', age: '25' },
-      { id: '965j6y', name: 'Laurentino', age: '28' }
-    ],
-    otherState: 'some other name',
-    showPersons: false
   }
 
   togglePersonsHandler = () => {
