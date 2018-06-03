@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import appStyles from './App.css'
 import Persons from '../components/Persons/Persons'
 import Cockpit from '../cockpit/Cockpit'
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props)
     console.log('[App.js] init Constructor()', props)
@@ -21,16 +21,16 @@ class App extends Component {
     console.log('[UPDATE App.js] init componentWillReceiveProps()', nextProps)
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(
-      '[UPDATE App.js] init componentShouldUpdate()',
-      nextProps,
-      nextState
-    )
-    return nextProps.persons !== this.state.persons ||
-      nextProps.otherState !== this.state.otherState ||
-      nextProps.showPersons !== this.state.showPersons
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log(
+  //     '[UPDATE App.js] init componentShouldUpdate()',
+  //     nextProps,
+  //     nextState
+  //   )
+  //   return nextProps.persons !== this.state.persons ||
+  //     nextProps.otherState !== this.state.otherState ||
+  //     nextProps.showPersons !== this.state.showPersons
+  // }
 
   componentWillUpdate(nextProps, nextState) {
     console.log(
