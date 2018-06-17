@@ -55,7 +55,7 @@ class Persons extends PureComponent {
         age={person.age}
         key={person.id}
         change={event => this.props.onChange(event, person.id)}
-        forwardRef={this.lastPersonRef} />
+        ref={this.lastPersonRef} />
       )
     )
   }
