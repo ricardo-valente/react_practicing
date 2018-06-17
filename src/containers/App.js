@@ -56,6 +56,19 @@ class App extends PureComponent {
     )
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(
+      '[UPDATE App.js] init getDerivedStateFromProps()',
+      nextProps,
+      prevState
+    )
+    return prevState
+  }
+
+  getSnapshotBeforeUpdate() {
+    console.log('[UPDATE App.js] init getSnapshotBeforeUpdate()')
+  }
+
   componentDidUpdate(nextProps, nextState) {
     console.log('[UPDATE App.js] init componentDidUpdate()')
   }
