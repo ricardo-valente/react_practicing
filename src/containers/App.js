@@ -65,6 +65,10 @@ class App extends PureComponent {
     return prevState
   }
 
+  getSnapshotBeforeUpdate() {
+    console.log('[UPDATE App.js] init getSnapshotBeforeUpdate()')
+  }
+
   componentDidUpdate(nextProps, nextState) {
     console.log('[UPDATE App.js] init componentDidUpdate()')
   }
