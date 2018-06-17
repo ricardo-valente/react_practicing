@@ -22,6 +22,10 @@ class Person extends Component {
     }
   }
 
+  focus() {
+    this.inputElem.current.focus()
+  }
+
   render() {
     console.log('[Person.js] init render()')
     return (
