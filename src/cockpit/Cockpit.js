@@ -24,7 +24,9 @@ const cockpit = props => {
       <p className={classes.join(' ')}>coded by {props.appAuthor}</p>
       <button
         className={buttonClass}
-        onClick={props.onClick}>Toggle Persons</button>
+        onClick={props.togglePersons}>Toggle Persons</button>
+      <button
+        onClick={props.login}>Log In</button>
     </Util>
   )
 }
